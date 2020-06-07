@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" style="display: none">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script type="text/javascript">
+    // Dynamic style loading
+    let fetchStyle = function() {
+      return new Promise((resolve, reject) => {
+        const themes = ['blue', 'cyan', 'deeppurple', 'green', 'indigo', 'lightblue', 'lightgreen', 'pink', 'purple', 'teal'];
+        const theme = "/styles/" + themes[Math.floor(Math.random() * themes.length)] + ".css";
+
+        let link = document.createElement('link');
+        link.type = 'text/css';
+        link.rel = 'stylesheet';
+        link.onload = function() {
+          document.documentElement.setAttribute("style", "display:auto");
+          resolve();
+         };
+        link.href = theme;
+
+        let headScript = document.querySelector('script');
+        headScript.parentNode.insertBefore(link, headScript);
+      });
+    }
+    fetchStyle()
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{{🧁description of site that will show up in links}}">
+    <link rel="canonical" href="{{🧁linktosite}}"/>
+    <meta name="author" content="{{🧁}}">
+    <meta name="theme-color" content="{{🧁theme color that'll show up in some mobile browsers}}">
+    <meta name="apple-mobile-web-app-status-bar-style" content="{{🧁theme color that'll show up in some mobile browsers}}">
+
+    <meta property="og:site_name" content="{{🧁}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{🧁}}" />
+    <meta property="og:description" content="{{🧁description again, for open graph}}" />
+    <meta property="og:url" content="{{🧁}}" />
+    <meta name="theme-color" content="{{🧁}}">
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet">
+
+    <title>{{🧁}}</title>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"></div>
+  </body>
+  <footer>
+    <!-- Analytics would go here -->
+  </footer>
+</html>

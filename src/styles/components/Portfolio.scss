@@ -1,0 +1,119 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+
+#portfolio {
+  z-index: 10;
+  position: relative;
+  background-color: white;
+  h2 {
+    color: lighten($dark, 20%);
+    margin-bottom: 50px
+  }
+
+  .rc-slider{
+    max-width: 400px;
+    @media screen and (orientation:portrait) {
+      max-width: 70vw;
+    }
+    .rc-slider-track {
+      background-color: lighten($primary, 25%);
+    }
+    .rc-slider-handle, .rc-slider-dot-active {
+      border-color: lighten($primary, 25%);
+
+      &:active {
+        box-shadow: 0 0 5px lighten($primary, 25%);
+      }
+    }
+    .rc-slider-mark-text {
+      width: 100px;
+    }
+  }
+
+  .portfolio-box {
+    padding: 5% 10%;
+    color: lighten($dark, 25%);
+
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 2em;
+      color: $primary;
+      margin-top: 25px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li {
+      font-size: 1.15em;
+      transition: all .5s ease;
+    }
+    li:before {
+      content: "> ";
+    }
+
+    .header {
+      font-size: 1.2em;
+      margin-top: 10px;
+      .title {
+        color: darken($primary, 30%);
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+
+      .desc {
+        color: darken($primary, 30%);
+      }
+      .date {
+        text-transform: uppercase;
+        font-weight: bold;
+        color: lighten($primary, 20%);
+      }
+    }
+
+    .divider-weak {
+      color: lighten($dark, 70%);
+    }
+
+    .divider-strong {
+      color: $primary;
+      font-weight: bold;
+    }
+  }
+
+  .points-enter {
+    opacity: 0.01;
+  }
+
+  .points-enter.points-enter-active {
+    opacity: 1;
+    color: $primary;
+    transition: all 500ms ease;
+  }
+
+  .points-exit {
+    opacity: 1;
+  }
+
+  .points-exit-active {
+    opacity: 0.01;
+    color: lighten($primary, 20%);
+    transition: all 500ms ease;
+    text-decoration: line-through;
+  }
+
+  .points-appear {
+    opacity: 0.01;
+  }
+
+  .points-appear.points-appear-active {
+    opacity: 1;
+    transition: all .5s ease;
+  }
+
+}

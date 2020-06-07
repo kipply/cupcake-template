@@ -1,0 +1,30 @@
+
+@mixin transition-all($seconds: 0.4s){
+    -webkit-transition: all $seconds;
+    -moz-transition: all $seconds;
+    -ms-transition: all $seconds;
+    -o-transition: all $seconds;
+    transition: all $seconds;
+}
+
+@mixin transition($transition){
+	-webkit-transition: $transition;
+	-moz-transition:    $transition;
+	-ms-transition:     $transition;
+	-o-transition:      $transition;
+    transition: $transition;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@mixin sans-serif-font(){
+	font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+}
+
+@mixin animation($arguments){
+	-webkit-animation: $arguments;
+	-moz-animation: $arguments;
+	animation: $arguments;
+}

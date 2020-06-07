@@ -1,0 +1,19 @@
+
+
+@mixin pic($height){
+  &:before{
+    content: '';
+    display: block;
+    padding-top: $height;
+    margin: 0;
+  }
+}
+
+.pic {
+  @include pic(100%);
+  float: left;
+  width: calc(100% / 3);
+  margin: 0;
+  background-size: cover;
+  background-position: center;
+}

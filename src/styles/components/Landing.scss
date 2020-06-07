@@ -1,0 +1,102 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.jumbotron {
+  background-color: transparent !important;
+  padding-top: 20%!important;
+  animation: fadein 2s;
+  padding-top: 10%;
+}
+
+#home {
+  background:
+    linear-gradient(
+      rgba(darken($primary, 20%), 0.45),
+      rgba(darken($primary, 20%), 0.45)
+    ),
+    url("../../background.png");
+  background-position: center;
+  background-size: cover;
+  opacity: 1;
+  @include transition(background 1.5s linear);
+  // text-align: center;
+  height: 100vh;
+  .section-heading {
+    font-size: 4em;
+  }
+  @media screen and (orientation:portrait) {
+    padding-top: 25%;
+  }
+  .section-heading {
+    text-align: left;
+  }
+}
+
+.quote {
+  font-size: 1.5em;
+  color: lighten(white, 90%);
+}
+
+p .quote-content {
+  font-weight: bolder;
+}
+
+#about{
+  height: 100%;
+  padding-top: 3%;
+  padding-bottom: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba($primary, 0.05),
+    rgba($primary, 0.05) 40px,
+    rgba($primary, 0.09) 40px,
+    rgba($primary, 0.09) 80px
+  );
+  box-shadow: inset 0px -100px 100px -45px white;
+  h2 {
+    color: lighten($dark, 20%);
+  }
+  p {
+    color: darken($primary, 20%);
+    font-size: 1.25em;
+  }
+  @media (min-width:650px) {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  @media screen and (orientation:portrait) {
+    padding: 5%;
+  }
+  a {
+    margin: 2px;
+    color: $primary;
+    &:hover {
+      color: darken($primary, 15%);
+    }
+  }
+}
+
+.signature  {
+  color: darken(white, 5%);
+  font-size: 1.2em;
+  position: fixed;
+  font-family: 'Montserrat', sans-serif !important;
+  top: 8px;
+  right: 10px;
+  z-index: 3;
+}
+
+.triangle{
+  width: 350px;
+  height: 40px;
+  position: fixed;
+  background: rgba($primary, .9);
+  z-index: 2;
+  -webkit-transform: skew(40deg) ;
+    -moz-transform: skew(40deg) ;
+      -o-transform: skew(40deg);
+  top: 0;
+  right: -50px;
+}

@@ -1,0 +1,81 @@
+@import '../styles/mixins.scss';
+@import '../styles/variables.scss';
+
+@import '../styles/components/Landing.scss';
+@import '../styles/components/Portfolio.scss';
+@import '../styles/components/Modelling.scss';
+
+html{
+    overflow-x: hidden;
+}
+
+body{
+    margin: 0;
+    height: 100%;
+    overflow-x: hidden;
+  float: none;
+  margin: auto;
+
+}
+
+hr {
+    border-color: $primary;
+    border-width: 3px;
+    max-width: 50px;
+}
+
+hr.light{
+    border-color: white;
+    }
+
+a {
+    @include transition-all;
+    color: $primary;
+    &:hover,
+    &:focus {
+        color: darken($primary, 10%);
+    }
+}
+
+
+
+p {
+    line-height: 120% !important;
+    margin-top: 30px;
+    color: fade(white, 95%);
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+
+// Sections
+
+.section-heading {
+    padding-top: 60px;
+    color: white;
+    font-size: 3em;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    @media (max-width: 767px){
+        padding-top: 30px;
+    }
+}
+
+.panels{
+    padding: 0 50px 50px 50px;
+    @media (max-width: 767px){
+        padding: 10px;
+    }
+    .navbar-header{
+        padding: 0;
+    }
+    height: 100%;
+}
+
+
+.vertical-center {
+    @media(min-width: 1200px){
+      min-height: 100%;
+      display: flex;
+      align-items: center;
+    }
+}
