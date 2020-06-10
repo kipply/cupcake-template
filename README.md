@@ -69,6 +69,8 @@ The favicon is the little icon that'll appear in the browser tab. It is defaulte
 
 1. Remove dependency on Bootstrap. This was a sad mistake made by fourteen year-old Carol that has lasted many years
 
-2. Add linting rules that work well for this project
+2. Proper 404 pages
 
-3. Built-in blogs
+3. Add linting rules that work well for this project
+
+4. Built-in blogs
