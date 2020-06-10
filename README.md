@@ -31,7 +31,7 @@ placing that into a static site generator. To see all the options, check out [Cr
 ### Firebase Hosting
 Pros: Deploy logs, UI for rollback, not tied to github commits
 
-Cons: May cost some money
+Cons: May cost some money (it's like 20 cents a month for me for like 1000 visits including some image-heavy pages)
 
 
 ### Github Pages
