@@ -81,6 +81,6 @@ The favicon is the little icon that'll appear in the browser tab. It is defaulte
 
 3. Add linting rules that work well for this project
 
-4. Built-in blogs
+4. Built-in blogs. I'm neutral about existing tools (I currently use hexo to statically generate), but I want to build a little static-generator (from markdown) that'll let me route with React and let me hard-code urls. I also want interactive and better-looking code blocks!  tl;dr I have little to demand from a static-blog generator and I'd prefer to build it myself since Hexo is already annoying me with the which-version-of-node-am-i-compatible-with game. 
 
 5. Use a different object notation format for the portfolio data that's less vertically-intensive. Probably YAMLs, which I actually don't hate. 
