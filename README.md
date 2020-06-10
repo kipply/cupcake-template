@@ -6,7 +6,7 @@ I'd love to see anything people do with this template so drop an email at `hello
 
 # Getting started 
 
-Run the following to set up the project and install dependencies. 
+Run the following to set up the project and install dependencies. (You can also use the "Use this template" button at the top instead of cloning)
 ```bash 
 git clone https://github.com/kipply/cupcake-template.git && cd cupcake-template
 npm install -g node-sass-chokidar 
