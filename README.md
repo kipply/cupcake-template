@@ -63,3 +63,12 @@ An analytics service such as Google Analytics will give you a script that should
 
 ### Favicon
 The favicon is the little icon that'll appear in the browser tab. It is defaulted to a sparkly heart, though can be changed by replacing `public/favicon.ico`. 
+
+
+# Upcoming features
+
+1. Remove dependency on Bootstrap. This was a sad mistake made by fourteen year-old Carol that has lasted many years
+
+2. Add linting rules that work well for this project
+
+3. Built-in blogs

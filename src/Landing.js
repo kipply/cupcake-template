@@ -1,7 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 
-import LinkedIn from 'react-icons/lib/fa/linkedin';
 import Github from 'react-icons/lib/fa/github';
 import Instagram from 'react-icons/lib/fa/instagram';
 import Twitter from 'react-icons/lib/fa/twitter';

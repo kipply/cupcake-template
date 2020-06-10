@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import Slider from 'rc-slider';
 import { Row, Col } from 'react-bootstrap';
 import { CSSTransition } from 'react-transition-group';
@@ -132,7 +132,7 @@ class PortfolioSection extends Component {
                     <span className="date"> {item.date}</span>
                   </div>
                   <ul>
-                      {points}
+                    {points}
                   </ul>
                 </div>
               </CSSTransition>
