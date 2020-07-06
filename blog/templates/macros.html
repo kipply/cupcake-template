@@ -1,0 +1,18 @@
+{% macro title(page) %}
+<header>
+  <h2 class="article-title"><a href="{{ page.permalink }}">{{ page.title }}</a></h2>
+  <p class="article-meta">
+    <time datetime="{{ page.date | date(format="%F") | safe }}">
+      {{ page.date | date(format="%F") }}
+    </time>
+    {% if page.extra.author -%}
+    by {{ page.extra.author}}
+    {%- endif %}
+    ({{ page.reading_time }} min read)
+  </p>
+</header>
+{% endmacro title %}
+
+{% macro polish(content) %}
+{{ content | safe}}
+{% endmacro content %}

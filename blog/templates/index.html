@@ -1,0 +1,116 @@
+{% import "macros.html" as macros %}
+
+<!DOCTYPE html>
+<html lang="{{ config.default_language }}" style="display: none" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="referrer" content="no-referrer">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+  {% block title -%}
+  {% if config.extra.subtitle %}
+  <title>{{ config.title }} | {{ config.extra.subtitle }}</title>
+  {% else %}
+  <title>{{ config.title }}</title>
+  {% endif %}
+  <meta property="og:title" content="{{ config.title }}" />
+  <meta name="twitter:title" content="{{ config.title }}" />
+  {%- endblock title %}
+
+  {% block description -%}
+  {% if config.description -%}
+  <meta name="description" content="{{ config.description }}">
+  <meta property="og:description" content="{{ config.description }}">
+  <meta name="twitter:description" content="{{ config.description | truncate(length=200) }}">
+  {%- endif %}
+  {%- endblock description %}
+
+  {% block meta -%}
+  <meta property="og:site_name" content="{{ config.title }}" />
+  <meta property="og:url" content="{{ config.base_url }}" />
+  {%- endblock meta %}
+
+  {% block css -%}
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+  {%- endblock css %}
+
+  <script type="text/javascript">
+  let fetchStyle = function() {
+    const themes = ['blue', 'cyan', 'deeppurple', 'green', 'indigo', 'lightblue', 'lightgreen', 'pink', 'purple', 'teal'];
+    const theme = "{{ get_url(path='themes') | safe }}/" + themes[Math.floor(Math.random() * themes.length)] + ".css";
+
+    let link = document.createElement('link');
+    link.type = 'text/css';
+    link.rel = 'stylesheet';
+    link.onload = function() {
+      document.documentElement.setAttribute("style", "display:auto");
+     };
+    link.href = theme;
+
+    let headScript = document.querySelector('script');
+    headScript.parentNode.insertBefore(link, headScript);
+  }
+  fetchStyle()
+  </script>
+
+  <link rel='icon' type='image/x-icon' href="{{ get_url(path="favicon.ico") }}" />
+
+  {% if config.generate_feed -%}
+  <link rel="alternate" type="application/atom+xml" title="{{ config.title }}" href="{{ get_url(path="atom.xml") }}">
+  {%- endif %}
+
+  {% block extra_head -%}
+  {%- endblock extra_head %}
+
+</head>
+<body>
+  {% block header -%}
+  <header class="header">
+    <h1 class="title-link"><a href="{{ config.base_url }}" class="p-title__link">{{ config.title }}</a></h1>
+    <div class="header-links">
+      <a href="https://carolchen.me"> Personal Site </a> |
+      <a href="https://twitter.com/kipperrii"> Twitter </a> |
+      <a href="https://github.com/kipply"> Github </a> |
+      <a href="mailto:hello@carolchen.me"> Email </a>
+    </div>
+  </header>
+
+  {%- endblock header %}
+
+  <main id="main" class="main">
+    {% block content -%}
+    {% for page in paginator.pages %}
+      <article class="c-article p-list-article">
+        {{ macros::title(page=page) }}
+        <div class="article-summary">
+          {% if page.summary -%}
+          {{ macros::polish(content=page.summary) }}
+          {% else %}
+          {{ macros::polish(content=page.content) | truncate(length=280) }}
+          {%- endif %}
+        </div>
+      </article>
+    {% endfor %}
+
+    {%- endblock content %}
+  </main>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-96105732-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <link rel="stylesheet" href="{{ get_url(path="css/katex.min.css") }}">
+  <script defer src="{{ get_url(path="js/katex.min.js") }}"></script>
+  <script defer src="{{ get_url(path="js/mathtex-script-type.min.js") }}"></script>
+  <script src="https://kit.fontawesome.com/fa2f0e5568.js" crossorigin="anonymous"></script>
+</body>
+</html>
+

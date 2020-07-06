@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="{{ config.default_language }}" style="display: none" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="referrer" content="no-referrer">
+  {% block css -%}
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+  {%- endblock css %}
+
+  <script type="text/javascript">
+  let fetchStyle = function() {
+    const themes = ['blue', 'cyan', 'deeppurple', 'green', 'indigo', 'lightblue', 'lightgreen', 'pink', 'purple', 'teal'];
+    const theme = "{{ get_url(path='themes') | safe }}/" + themes[Math.floor(Math.random() * themes.length)] + ".css";
+
+    let link = document.createElement('link');
+    link.type = 'text/css';
+    link.rel = 'stylesheet';
+    link.onload = function() {
+      document.documentElement.setAttribute("style", "display:auto");
+     };
+    link.href = theme;
+
+    let headScript = document.querySelector('script');
+    headScript.parentNode.insertBefore(link, headScript);
+  }
+  fetchStyle()
+  </script>
+</head>
+<body>
+  <div class="notfound">
+    <h1>404 Page Not Found</h1>
+    <a href="{{config.base_url}}">Return to blog index to find page</a>
+  </div>
+</body>
+</html>
+

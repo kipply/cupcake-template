@@ -1,0 +1,62 @@
+{% extends "index.html" %}
+{% import "macros.html" as macros %}
+
+{% block title -%}
+<title>{{page.title}} | {{config.title}}</title>
+<meta property="og:title" content="{{page.title}} | {{config.title}}" />
+<meta name="twitter:title" content="{{page.title}} | {{config.title}}" />
+{%- endblock title %}
+
+{% block content %}
+<article class="article">
+  <header>
+    <h1>{{ page.title }}</h1>
+    <div>
+      <div class="article-meta">
+        <time datetime="{{ page.date | date(format="%F") | safe }}">
+          {{ page.date | date(format="%F") }}
+        </time>
+        {% if page.extra.author -%}
+        by {{ page.extra.author}}
+        {%- endif %}
+        ({{ page.reading_time }} min read)
+      </div>
+    </div>
+  </header>
+  <section id="js-article" class="article-body">
+    {{ macros::polish(content=page.content) }}
+  </section>
+  <footer>
+    <div class="social-icons">
+      ---
+      <br/>
+      Thanks for reading <3
+      <br/>
+      I'm generally open to being contacted, find/contact me via:
+      <a class="icon-link" href="https://twitter.com/kipperrii">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/kipply">
+        <i class="fab fa-github"></i>
+      </a>
+      <a class="icon-link" href="https://www.instagram.com/kipperrii/">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a class="icon-link" href="mailto:hello@carolchen.me">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+
+    <div class="other-articles">
+      <h1>See Also</h1>
+      {% if page.later -%}
+      <a href="{{ page.later.permalink }}">{{ page.later.title }}</a>
+      {%- endif %}
+      </br>
+      {% if page.earlier -%}
+      <a href="{{ page.earlier.permalink }}">{{ page.earlier.title }}</a>
+      {%- endif %}
+    </div>
+  </footer>
+</article>
+{%- endblock content %}
