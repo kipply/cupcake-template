@@ -1,6 +1,6 @@
 # Cupcake Template
 
-This is Cupcake🧁, a mirror of my [personal website](https://carolchen.me/). It contains all the features of that website except the blog! Cupcake is best served as a portfolio or online resume. This project will be actively maintained to be a better codebase, and implement new features. It is also open to any kind of contribution - features, bug fixes, improvements or documentation. Some features of the website: 
+This is Cupcake🧁, a mirror of my [personal website](https://carolchen.me/). It contains all the features of that website, including the blog! Cupcake is best served as a portfolio or online resume. This project will be actively maintained to be a better codebase, and implement new features. It is also open to any kind of contribution - features, bug fixes, improvements or documentation. Some features of the website: 
 
  - Randomization on-visit for colour theme 🌈 (with setup to dynamically generate css files) 
  - Randomization of quotes and images
@@ -16,6 +16,7 @@ I'd love to see anything people do with this template so drop an email at `hello
 
 Run the following to set up the project and install dependencies. (You can also use the "Use this template" button at the top instead of cloning)
 ```bash 
+# follow instructions at https://www.getzola.org/documentation/getting-started/installation/
 git clone https://github.com/kipply/cupcake-template.git && cd cupcake-template
 npm install -g node-sass-chokidar 
 npm install -g react-run-all 
@@ -50,6 +51,9 @@ Cons: Tied to your github commits/pushes
 
 # Customizations
 
+### Blog
+There is a blog folder that is more or less a distinct website. It is built statically with [`zola`](https://www.getzola.org/documentation/getting-started/installation/) which you should have installed. `npm run build` will simply run the standard build for the React website, then statically build the blog into the `public/` folder. Note that there are a lot of links in the source that have to be replaced! Do a big search for `🧁` to find points where your information is required.
+
 ### Adding Routes
 The template ships by default with `/` pointing to `index.html` and that is also be configured and reflected in Firebase. If additional pages are desired there are a few options. 
 
@@ -80,7 +84,5 @@ The favicon is the little icon that'll appear in the browser tab. It is defaulte
 2. Proper 404 pages
 
 3. Add linting rules that work well for this project
-
-4. Built-in blogs. I'm neutral about existing tools (I currently use hexo to statically generate), but I want to build a little static-generator (from markdown) that'll let me route with React and let me hard-code urls. I also want interactive and better-looking code blocks!  tl;dr I have little to demand from a static-blog generator and I'd prefer to build it myself since Hexo is already annoying me with the which-version-of-node-am-i-compatible-with game. 
 
 5. Use a different object notation format for the portfolio data that's less vertically-intensive. Probably YAMLs, which I actually don't hate. 
